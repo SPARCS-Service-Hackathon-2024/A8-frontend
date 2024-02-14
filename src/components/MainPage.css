@@ -1,5 +1,7 @@
 .room-list {
-  width: 90%;
+  width: 100%;
   display: inline-flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
