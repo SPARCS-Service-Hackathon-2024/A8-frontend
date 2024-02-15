@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 import { useChatRooms } from './ChatRoomsProvider'; // Context 사용
+import './ChatRoom.css';
+import { NavBar } from 'antd-mobile';
+import { LeftOutline } from 'antd-mobile-icons';
 
 let socket;
 
@@ -13,10 +16,12 @@ const initialMessages = [
 
 function ChatRoom() {
   const { id } = useParams();
+  const navigateTo = useNavigate();
   const { updateRoomsWithMessage } = useChatRooms(); // Context에서 함수 추출
   const [currentMessage, setCurrentMessage] = useState('');
   // const [chatMessages, setChatMessages] = useState([]);
   const [messages, setMessages] = useState(initialMessages);// 더미데이터!!!!!!!
+  const [chatPartnerNickname, setChatPartnerNickname] = useState('유성주민');
 
   // 실제로는 이 코드
   // useEffect(() => {
@@ -34,19 +39,21 @@ function ChatRoom() {
 
   // 더미용
   const sendMessage = () => {
-    if (currentMessage.trim() !== '') {
+    const trimmedMessage = currentMessage.trim();
+    if (trimmedMessage) {
       const newMessage = {
-        id: messages.length + 1, // 메시지 ID 자동 생성
-        text: currentMessage.trim(),
-        sender: "서윤", // 현재 사용자 식별자 (더미
+        id: messages.length + 1,
+        text: trimmedMessage,
+        sender: "나",
         timestamp: new Date().toISOString(),
       };
-
-      setMessages(messages.concat(newMessage)); // 메시지 목록에 새 메시지 추가
-      updateRoomsWithMessage(id, newMessage); // 전역 상태 업데이트
-      setCurrentMessage(''); // 입력 필드 초기화
+  
+      setMessages(messages => messages.concat(newMessage));
+      updateRoomsWithMessage(id, newMessage);
+      setCurrentMessage('');
     }
   };
+  
 
   // 실제로는 이 코드
   // const sendMessage = () => {
@@ -73,20 +80,52 @@ function ChatRoom() {
 
   // 더미용
   return (
-    <div>
-      <h1>Chat Room: {id}</h1>
-      <div>
+    // <div>
+    //   <h1>Chat Room: {id}</h1>
+    //   <div>
+    //     {messages.map(message => (
+    //       <p key={message.id}>{message.sender}: {message.text}</p> // 메시지와 발신자 표시
+    //     ))}
+    //   </div>
+    //   <input
+    //     value={currentMessage}
+    //     onChange={e => setCurrentMessage(e.target.value)}
+    //     type="text"
+    //     placeholder="메시지 입력"
+    //   />
+    //   <button onClick={sendMessage}>Send</button>
+    // </div>
+    <div className="chat-room-container">
+      <NavBar
+        icon={<LeftOutline />}
+        onBack={() => navigateTo('/chatroomlist')} 
+        style={{
+          "--height": "50px",
+          "--border-bottom": "1px #eee solid",
+          "margin-bottom": "20px",
+        }}
+      >
+        {chatPartnerNickname} {/* Display chat partner's nickname */}
+      </NavBar>
+
+      <div className="messages-container">
         {messages.map(message => (
-          <p key={message.id}>{message.sender}: {message.text}</p> // 메시지와 발신자 표시
+          <div key={message.id} className={`message-bubble ${message.sender === "유성주민" ? "outgoing" : "incoming"}`}>
+            <p className="message-text">{message.text}</p>
+            <p className="message-sender">{message.sender}</p>
+          </div>
         ))}
       </div>
-      <input
-        value={currentMessage}
-        onChange={e => setCurrentMessage(e.target.value)}
-        type="text"
-        placeholder="메시지 입력"
-      />
-      <button onClick={sendMessage}>Send</button>
+      <div className="message-input-container">
+        <input
+          className="message-input"
+          value={currentMessage}
+          onChange={e => setCurrentMessage(e.target.value)}
+          type="text"
+          placeholder="메시지 입력"
+        />
+        <button className="send-button" onClick={sendMessage} disabled={!currentMessage.trim()}>Send</button>
+      </div>
     </div>
   );
 }

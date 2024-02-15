@@ -1,0 +1,15 @@
+.room-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .room-item {
+    margin-bottom: 10px;
+  }
+  
+  .room-link {
+    text-decoration: none;
+    color: #333; /* Example color */
+    /* Add more styling as needed */
+  }
+  
