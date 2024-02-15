@@ -5,6 +5,9 @@ import RoomButton from "./RoomButton";
 import "./MainPage.css";
 import CreateRoomModal from "./CreateRoomModal";
 
+import { NavBar, Button, SearchBar } from "antd-mobile";
+import { AntOutline, AddCircleOutline } from "antd-mobile-icons";
+
 function MainPage() {
   const [rooms, setRooms] = useState([]); // 현재 생성된 방 목록을 저장하는 상태
   const [roomId, setRoomId] = useState("");
@@ -49,16 +52,18 @@ function MainPage() {
         onClose={closeModal}
         createRoom={createRoom}
       />
-      <h1>메인 페이지</h1>
-      <button onClick={openModal}>방 생성</button>
-      <input
-        type="text"
-        placeholder="방 ID 입력"
-        value={roomId}
-        onChange={(e) => setRoomId(e.target.value)}
-      />
-      <button onClick={joinRoom}>방 참가</button>
-      <h2>현재 생성된 방들</h2>
+      <NavBar
+        onBack={() => navigateTo(`/`)}
+        style={{
+          "--height": "50px",
+          "--border-bottom": "1px #eee solid",
+          "margin-bottom": "20px",
+        }}
+      >
+        <h1>방 리스트</h1>
+      </NavBar>
+
+      <SearchBar placeholder="검색하기" />
       <div className="room-list">
         {rooms.map((room) => (
           <RoomButton
@@ -70,6 +75,18 @@ function MainPage() {
           />
         ))}
       </div>
+
+      <Button
+        className="create-room-button"
+        size="large"
+        shape="rounded"
+        color="primary"
+        fill="solid"
+        onClick={openModal}
+      >
+        방 만들기&nbsp;
+        <AddCircleOutline fontSize={18} />
+      </Button>
     </div>
   );
 }

@@ -1,11 +1,18 @@
 .main-page {
-  padding: 1rem;
 }
 
 .room-list {
   width: 100%;
-  display: inline-flex;
+  height: 550px;
+  overflow-y: scroll;
+  margin: 20px 0;
+  display: block;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+.create-room-button {
+  width: 300px;
+  font-weight: 700;
 }
