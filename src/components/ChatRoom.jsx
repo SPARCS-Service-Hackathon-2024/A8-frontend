@@ -3,9 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import { useChatRooms } from "./ChatRoomsProvider"; // Context 사용
 import "./ChatRoom.css";
-import { NavBar, FloatingBubble, Popover } from "antd-mobile";
+import { NavBar, FloatingBubble, Popover, Modal } from "antd-mobile";
 import { LeftOutline, MoreOutline } from "antd-mobile-icons";
-import { SendOutlined, HeartOutlined, SmileOutlined } from "@ant-design/icons";
+import { SendOutlined, HeartOutlined, AlertOutlined } from "@ant-design/icons";
 
 let socket;
 
@@ -88,13 +88,38 @@ function ChatRoom() {
   //   </div>
   // );
 
-  const actions = [{ key: "match", icon: <HeartOutlined />, text: "매치" }];
+  const actions = [
+    { key: "match", icon: <HeartOutlined />, text: "매치" },
+    { key: "report", icon: <AlertOutlined />, text: "신고" },
+  ];
+  const matchHandler = () => {
+    Modal.confirm({
+      title: "❗매칭 성공 ❗",
+      content: "<퇴근 후 커피> 모임의 호스트와 매칭 성공되었습니다!",
+      cancelText: "닫기",
+      confirmText: "장소 확인하기",
+      onConfirm: () => {
+        navigateTo(`/match/${id}`);
+      },
+    });
+  };
 
   const right = (
     <Popover.Menu
       actions={actions}
       placement="bottom-start"
-      onAction={(node) => console.log(`${node.text}`)}
+      onAction={(node) => {
+        switch (node.key) {
+          case "match":
+            matchHandler();
+            break;
+          case "report":
+            console.log("신고");
+            break;
+          default:
+            break;
+        }
+      }}
       trigger="click"
     >
       <MoreOutline fontSize={"20px"} />
