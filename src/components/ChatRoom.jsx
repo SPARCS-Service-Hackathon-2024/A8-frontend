@@ -102,7 +102,6 @@ function ChatRoom() {
         style={{
           "--height": "50px",
           "--border-bottom": "1px #eee solid",
-          "margin-bottom": "20px",
         }}
       >
         {chatPartnerNickname} {/* Display chat partner's nickname */}
