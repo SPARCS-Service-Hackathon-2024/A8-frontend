@@ -76,17 +76,19 @@ function MainPage() {
         ))}
       </div>
 
-      <Button
-        className="create-room-button"
-        size="large"
-        shape="rounded"
-        color="primary"
-        fill="solid"
-        onClick={openModal}
-      >
-        방 만들기&nbsp;
-        <AddCircleOutline fontSize={18} />
-      </Button>
+      <div style={{ textAlign: "center" }}>
+        <Button
+          className="create-room-button"
+          size="large"
+          shape="rounded"
+          color="primary"
+          fill="solid"
+          onClick={openModal}
+        >
+          방 만들기&nbsp;
+          <AddCircleOutline fontSize={18} />
+        </Button>
+      </div>
     </div>
   );
 }

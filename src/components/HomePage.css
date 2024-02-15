@@ -1,0 +1,25 @@
+/* HomePage.css */
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-filter-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.filter-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nearby-meetup-section {
+  padding: 10px;
+}
+
+.meetup-item {
+  text-align: center;
+}
