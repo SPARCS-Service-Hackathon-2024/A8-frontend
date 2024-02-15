@@ -5,19 +5,24 @@ import { Carousel } from "antd";
 import {
   EnvironmentOutlined,
   MoreOutlined,
-  HomeOutlined,
-  UnorderedListOutlined,
   MessageOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import "./HomePage.css";
 
 const HomePage = () => {
-  const tabs = [
-    { key: "home", title: "홈", icon: <HomeOutlined /> },
-    { key: "list", title: "방 목록", icon: <UnorderedListOutlined /> },
-    { key: "chat", title: "채팅", icon: <MessageOutlined /> },
-    { key: "profile", title: "프로필", icon: <UserOutlined /> },
+  const carouselItems = [
+    {
+      id: 1,
+      image: "https://via.placeholder.com/300",
+      name: "모임 이름",
+      location: "위치 정보",
+    },
+    {
+      id: 2,
+      image: "https://via.placeholder.com/300",
+      name: "모임 이름",
+      location: "위치 정보",
+    },
   ];
 
   return (
@@ -31,20 +36,24 @@ const HomePage = () => {
       <div className="nearby-meetup-section">
         <h2>근처 모임</h2>
         <Carousel autoplay={false} infinite>
-          <div className="meetup-item">
-            <h3>모임 이름</h3>
-            <p>
-              <EnvironmentOutlined /> 위치 정보
-            </p>
-          </div>
-          {/* 추가 모임 아이템 */}
+          {carouselItems.map((item) => (
+            <div className="meetup-item" key={item.id}>
+              <img className="item-img" src={item.image} alt={item.name} />
+              <div className="div-box">
+                <div className="info-section">
+                  <h3 className="meetup-name">{item.name}</h3>
+                  <div className="location-info">
+                    <EnvironmentOutlined /> {item.location}
+                  </div>
+                </div>
+                <div className="icon-section">
+                  <MessageOutlined style={{ fontSize: "24px" }} />
+                </div>
+              </div>
+            </div>
+          ))}
         </Carousel>
       </div>
-      <TabBar>
-        {tabs.map((tab) => (
-          <TabBar.Item key={tab.key} icon={tab.icon} title={tab.title} />
-        ))}
-      </TabBar>
     </div>
   );
 };
