@@ -4,7 +4,11 @@
 }
 
 .bottom-container {
+  z-index: 99;
+  background-color: white;
+  padding-top: 5px;
   width: 100%;
+  max-width: 375px;
   position: absolute;
   bottom: 0;
   border-top: solid 1px var(--adm-color-border);

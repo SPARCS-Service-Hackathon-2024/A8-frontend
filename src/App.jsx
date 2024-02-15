@@ -17,11 +17,13 @@ import {
   MessageOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { LocationFill } from "antd-mobile-icons";
 
 const Bottom = () => {
   const tabs = [
     { key: "/", title: "홈", icon: <HomeOutlined /> },
     { key: "/main", title: "방 목록", icon: <UnorderedListOutlined /> },
+    { key: "/map", title: "지도", icon: <LocationFill /> },
     { key: "/chatroomlist", title: "채팅", icon: <MessageOutlined /> },
     { key: "/profile", title: "프로필", icon: <UserOutlined /> },
   ];

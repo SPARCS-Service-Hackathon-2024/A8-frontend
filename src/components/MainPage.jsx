@@ -57,13 +57,13 @@ function MainPage() {
         style={{
           "--height": "50px",
           "--border-bottom": "1px #eee solid",
-          "margin-bottom": "20px",
+          marginBottom: "20px",
         }}
       >
         <h1>방 리스트</h1>
       </NavBar>
 
-      <SearchBar placeholder="검색하기" />
+      <SearchBar placeholder="검색하기" style={{ margin: "0 20px" }} />
       <div className="room-list">
         {rooms.map((room) => (
           <RoomButton
