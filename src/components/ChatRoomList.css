@@ -12,4 +12,16 @@
     color: #333; /* Example color */
     /* Add more styling as needed */
   }
+
+  .chatroom-list .adm-list-item {
+    align-items: center;
+  }
   
+  .chatroom-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 7px;
+    margin-right: 7px;
+    object-fit: cover;
+  }

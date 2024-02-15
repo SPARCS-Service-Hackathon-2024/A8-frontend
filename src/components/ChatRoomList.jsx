@@ -7,14 +7,33 @@ import {
 } from "react-router-dom";
 import ChatRoom from "./ChatRoom";
 import io from "socket.io-client";
-import { NavBar } from "antd-mobile";
+import { NavBar, List } from "antd-mobile";
 import { LeftOutline } from "antd-mobile-icons";
 import "./ChatRoomList.css";
 
 let socket;
 
 function ChatRoomList() {
-  const [rooms, setRooms] = useState([]);
+  const [rooms, setRooms] = useState([
+    {
+      id: 1,
+      name: "유성 주민",
+      lastMessage: "유성구는 좋은 곳이에요",
+      imageUrl: "https://picsum.photos/60/60?img=1",
+    },
+    {
+      id: 2,
+      name: "대전 좋아",
+      lastMessage: "장소는 이미 정해졌나요?",
+      imageUrl: "https://picsum.photos/60/60?img=2",
+    },
+    {
+      id: 3,
+      name: "친구 구함",
+      lastMessage: "취미가 어떻게 되세요?",
+      imageUrl: "https://picsum.photos/60/60?img=3",
+    },
+  ]);
   const navigateTo = useNavigate();
 
   useEffect(() => {
@@ -39,7 +58,7 @@ function ChatRoomList() {
     <div className="chat-room-container">
       <NavBar
         icon={<LeftOutline />}
-        onBack={() => navigateTo("/")}
+        backArrow={false}
         style={{
           "--height": "50px",
           "--border-bottom": "1px #eee solid",
@@ -49,15 +68,26 @@ function ChatRoomList() {
         <h1>채팅방 목록</h1>
       </NavBar>
 
-      <ul className="room-list">
-        {rooms.map((room, index) => (
-          <li key={index} className="room-item">
-            <Link to={`/chatroom/${room.id}`} className="room-link">
-              {room.name}
-            </Link>
-          </li>
+      <List className="chatroom-list">
+        {rooms.map((room) => (
+          <List.Item
+            key={room.id}
+            prefix={
+              <img
+                src={room.imageUrl}
+                width={"60px"}
+                height={"60px"}
+                alt="Room"
+                className="chatroom-image"
+              />
+            }
+            description={room.lastMessage}
+            onClick={() => navigateTo(`/chatroom/${room.id}`)}
+          >
+            {room.name}
+          </List.Item>
         ))}
-      </ul>
+      </List>
     </div>
   );
 }
