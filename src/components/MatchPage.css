@@ -1,0 +1,30 @@
+/* .map-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+} */
+
+.match-page {
+  height: 100vh;
+  padding: 10px 0;
+}
+
+#match-map {
+  z-index: 0;
+  width: 375px;
+  height: 500px;
+}
+
+#match-pannel {
+  max-width: 375px;
+  left: auto;
+}
+
+.match-info {
+  width: 100%;
+  max-width: 375px;
+  margin: auto;
+  text-align: center;
+}

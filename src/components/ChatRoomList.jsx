@@ -17,7 +17,7 @@ function ChatRoomList() {
   const [rooms, setRooms] = useState([
     {
       id: 1,
-      name: "유성 주민",
+      name: "퇴근 후 커피",
       lastMessage: "유성구는 좋은 곳이에요",
       imageUrl: "https://picsum.photos/60/60?img=1",
     },

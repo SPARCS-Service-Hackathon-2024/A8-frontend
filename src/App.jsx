@@ -1,10 +1,10 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ChatRoomsProvider } from "./components/ChatRoomsProvider";
 import ChatRoomList from "./components/ChatRoomList";
 import ChatRoom from "./components/ChatRoom";
 import HomePage from "./components/HomePage";
 import MainPage from "./components/MainPage";
+import MatchPage from "./components/MatchPage";
 import MapPage from "./components/MapPage";
 import Profile from "./components/Profile";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -54,7 +54,8 @@ function App() {
           <Route path="/map" element={<MapPage />} />
           <Route path="/chatroomlist" element={<ChatRoomList />} />
           <Route path="/chatroom/:id" element={<ChatRoom />} />
-          <Route path="/profile" element={<Profile />}/>
+          <Route path="/match/:id" element={<MatchPage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <div className="bottom-container">
           <Bottom />

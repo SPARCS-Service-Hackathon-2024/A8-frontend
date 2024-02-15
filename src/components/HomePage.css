@@ -48,6 +48,7 @@
 .meetup-name {
   font-weight: bold;
   margin-bottom: 5px; /* 이름과 위치 정보 사이의 여백 */
+  text-align: left;
 }
 
 .location-info {
