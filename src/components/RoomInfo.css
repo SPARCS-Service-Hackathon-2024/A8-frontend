@@ -1,0 +1,27 @@
+.room-info-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.transparent-navbar .am-navbar {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.image-section img {
+  width: 100%;
+  height: 50vh; /* 화면의 절반 높이 */
+  object-fit: cover; /* 이미지 비율 유지 */
+}
+
+.room-details {
+  padding: 20px;
+}
+
+.action-buttons {
+  margin-top: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}

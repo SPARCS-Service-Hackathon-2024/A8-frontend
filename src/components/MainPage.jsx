@@ -17,6 +17,8 @@ function MainPage() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  const [selectedRoom, setSelectedRoom] = useState({}); // 선택된 방 정보를 저장하는 상태
+
   useEffect(() => {
     // 페이지가 로드될 때 방 목록을 불러옴
     // fetch('/api/rooms')

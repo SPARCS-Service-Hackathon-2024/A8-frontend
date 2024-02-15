@@ -35,7 +35,7 @@ const HomePage = () => {
       </div>
       <div className="nearby-meetup-section">
         <h2>근처 모임</h2>
-        <Carousel autoplay={false} infinite>
+        <Carousel autoplay infinite>
           {carouselItems.map((item) => (
             <div className="meetup-item" key={item.id}>
               <img className="item-img" src={item.image} alt={item.name} />
