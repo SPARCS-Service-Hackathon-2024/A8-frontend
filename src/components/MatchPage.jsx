@@ -3,6 +3,7 @@ import { NavBar, FloatingPanel } from "antd-mobile";
 import "./MatchPage.css";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "antd";
+import Transport from "./Transport";
 
 const { Title, Paragraph, Text, Link } = Typography;
 
@@ -159,7 +160,7 @@ const MatchPage = () => {
   }, []);
 
   const ref = useRef(null);
-  const anchors = [170, window.innerHeight * 0.5, window.innerHeight * 0.8];
+  const anchors = [170, window.innerHeight * 0.55, window.innerHeight * 0.8];
 
   return (
     <div className="match-page" style={{ height: "100vh" }}>
@@ -181,9 +182,6 @@ const MatchPage = () => {
         ref={ref}
         style={{ "--z-index": 50, marginBottom: "60px" }}
       >
-        {/* <div className="match-info">
-          <h1>축하</h1>
-        </div> */}
         <Typography className="match-info">
           <Title level={3}>{"<퇴근 후 커피>"}</Title>
           <Paragraph>
@@ -193,6 +191,10 @@ const MatchPage = () => {
             {"에서 하차하세요."}
           </Paragraph>
         </Typography>
+
+        <br />
+
+        <Transport />
       </FloatingPanel>
     </div>
   );

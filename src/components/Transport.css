@@ -83,3 +83,8 @@
     color: #888;
     font-size: 0.9em;
   }
+
+.transport {
+  max-width: 375px;
+  margin: auto;
+}
