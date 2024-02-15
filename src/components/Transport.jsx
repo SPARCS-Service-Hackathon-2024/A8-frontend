@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Transport.css";
 
 const Transport = () => {
-  const [fromStation] = useState("한국과학기술원 교수회관");
+  const [fromStation] = useState("한빛아파트");
   const [toStation] = useState("유성고속터미널");
   const [transitOptions, setTransitOptions] = useState([
     { line: "특구 1 버스", duration: "30분 소요" },

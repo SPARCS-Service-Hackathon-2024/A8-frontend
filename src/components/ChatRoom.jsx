@@ -32,7 +32,8 @@ function ChatRoom() {
   const [currentMessage, setCurrentMessage] = useState("");
   // const [chatMessages, setChatMessages] = useState([]);
   const [messages, setMessages] = useState(initialMessages); // 더미데이터!!!!!!!
-  const [chatPartnerNickname, setChatPartnerNickname] = useState("유성주민");
+  const [chatPartnerNickname, setChatPartnerNickname] =
+    useState("퇴근 후 커피");
 
   // 실제로는 이 코드
   // useEffect(() => {
