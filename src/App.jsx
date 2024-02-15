@@ -6,6 +6,7 @@ import ChatRoom from "./components/ChatRoom";
 import HomePage from "./components/HomePage";
 import MainPage from "./components/MainPage";
 import MapPage from "./components/MapPage";
+import Profile from "./components/Profile";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./App.css";
 
@@ -53,7 +54,7 @@ function App() {
           <Route path="/map" element={<MapPage />} />
           <Route path="/chatroomlist" element={<ChatRoomList />} />
           <Route path="/chatroom/:id" element={<ChatRoom />} />
-          <Route path="/profile" />
+          <Route path="/profile" element={<Profile />}/>
         </Routes>
         <div className="bottom-container">
           <Bottom />
