@@ -6,8 +6,8 @@
     border-radius: 10px; 
     max-width: 600px; 
     margin: 20px auto; 
-  }
-  
+  } 
+
   .profile-picture {
     text-align: center;
     margin-bottom: 10px;
@@ -110,6 +110,8 @@
     cursor: pointer; 
     border-radius: 50%;
   }
+
+  
   
   .submit-button {
     padding: 15px;

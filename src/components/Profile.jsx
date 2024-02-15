@@ -24,7 +24,7 @@ function Profile() {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setImagePreview(e.target.result); // 이미지 미리보기 설정
+        setImagePreview(e.target.result); // 이미지 미리보기
       };
       reader.readAsDataURL(file);
     }
@@ -129,7 +129,6 @@ function Profile() {
             onChange={(e) => setStationRange(e.target.value)}
         />
         </div>
-
         <button type="submit" className="submit-button">저장</button>
       </form>
     </div>

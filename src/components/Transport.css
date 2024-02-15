@@ -1,0 +1,85 @@
+.location-box,
+  .transit-list-container {
+    margin: 10px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+  }
+  
+  .station-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .station-info-item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+  .station-info-label {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #888;
+    margin-right: 10px;
+  }
+  
+  .station-info-content {
+    text-align: left;
+    font-size: 1em;
+    color: #333;
+  }
+  
+  .horizontal-line {
+    width: 100%;
+    height: 1px;
+    background-color: #d3d3d3;
+    margin: 10px 0;
+  }
+  
+  .station-info-item::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #007bff;
+    margin-right: 10px;
+  }
+
+  .transit-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f7f7f7;
+    border-radius: 10px;
+  }
+  
+  .transit-line {
+    display: flex;
+    align-items: center;
+  }
+  
+  .line-icon {
+    padding-right: 5px;
+  }
+  
+  .line-name {
+    font-weight: bold;
+  }
+  
+  .transit-time {
+    text-align: right;
+  }
+  
+  .duration {
+    display: block;
+    color: #888;
+    font-size: 0.9em;
+  }
