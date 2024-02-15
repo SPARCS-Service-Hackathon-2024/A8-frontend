@@ -38,7 +38,6 @@ function ChatRoomList() {
   return (
     <div className="chat-room-container">
       <NavBar
-        back={null}
         icon={<LeftOutline />}
         onBack={() => navigateTo("/")}
         style={{

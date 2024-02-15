@@ -10,8 +10,8 @@ let socket;
 
 //더미데이터
 const initialMessages = [
-  { id: 1, text: "안녕하세요^^", sender: "user1", timestamp: "2024-02-15T09:00:00Z" },
-  { id: 2, text: "하이ㅣㅣㅣ", sender: "user2", timestamp: "2024-02-15T09:01:00Z" },
+  { id: 1, text: "안녕하세요^^", sender: "유성주민", timestamp: "2024-02-15T09:00:00Z" },
+  { id: 2, text: "하이ㅣㅣㅣ", sender: "유성주민", timestamp: "2024-02-15T09:01:00Z" },
 ];
 
 function ChatRoom() {
@@ -110,7 +110,7 @@ function ChatRoom() {
 
       <div className="messages-container">
         {messages.map(message => (
-          <div key={message.id} className={`message-bubble ${message.sender === "유성주민" ? "outgoing" : "incoming"}`}>
+          <div key={message.id} className={`message-bubble ${message.sender === "나" ? "outgoing" : "incoming"}`}>
             <p className="message-text">{message.text}</p>
             <p className="message-sender">{message.sender}</p>
           </div>
