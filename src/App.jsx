@@ -4,6 +4,7 @@ import { ChatRoomsProvider } from './components/ChatRoomsProvider';
 import ChatRoomList from './components/ChatRoomList';
 import ChatRoom from './components/ChatRoom';
 import MainPage from './components/MainPage';
+import MapPage from "./components/MapPage";
 import ChatLayout from './components/ChatLayout';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<MainPage />} />
+              <Route path="/map" element={<MapPage />} />
               {/* <Route path="/chatroomlist" element={<ChatLayout><ChatRoomList /></ChatLayout>} /> */}
               <Route path="/chatroom/:id" element={
               <ChatLayout>
