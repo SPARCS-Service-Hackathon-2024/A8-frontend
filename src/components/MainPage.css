@@ -1,9 +1,10 @@
 .main-page {
+  margin-bottom: 70px;
 }
 
 .room-list {
   width: 100%;
-  height: 500px;
+  height: calc(100% - 100px);
   overflow-y: scroll;
   margin: 20px 0;
   display: block;
